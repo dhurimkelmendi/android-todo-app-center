@@ -8,10 +8,15 @@ import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.microsoft.appcenter.crashes.Crashes;
 import com.example.avjindersinghsekhon.minimaltodo.About.AboutActivity;
 import com.example.avjindersinghsekhon.minimaltodo.AppDefault.AppDefaultActivity;
 import com.example.avjindersinghsekhon.minimaltodo.R;
 import com.example.avjindersinghsekhon.minimaltodo.Settings.SettingsActivity;
+
+
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
 
 public class MainActivity extends AppDefaultActivity {
 
@@ -23,6 +28,9 @@ public class MainActivity extends AppDefaultActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(false);
         }
+        AppCenter.start(getApplication(),
+                "d1f1b758-3796-4bd1-a218-e7e9df55cf88",
+                Analytics.class, Crashes.class);
     }
 
     @Override
